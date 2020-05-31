@@ -17,10 +17,19 @@
     border: none;
 }
 
+.activity-card .duration {
+    width: 20%;
+    border: none;
+    font-size: 1em;
+    text-align: right;
+}
+
 .activity-card mat-slider {
     width: 90%;
 }
 
 .activity-card mat-icon {
     cursor: pointer;
+    font-size: 30px;
+    margin: 0 3px;
 }

@@ -2,9 +2,15 @@
 
     <mat-card-header>
         <div mat-card-avatar>
-            <mat-icon>
-                sentiment_satisfied_alt
-            </mat-icon>
+            <mat-icon *ngIf="activity.type===1">library_music</mat-icon>
+            <mat-icon *ngIf="activity.type===2">people</mat-icon>
+            <mat-icon *ngIf="activity.type===3">home</mat-icon>
+            <mat-icon *ngIf="activity.type===4">laptop_mac</mat-icon>
+            <mat-icon *ngIf="activity.type===5">school</mat-icon>
+            <mat-icon *ngIf="activity.type===6">help_center</mat-icon>
+            <mat-icon *ngIf="activity.type===7">self_improvement</mat-icon>
+            <mat-icon *ngIf="activity.type===8">person_add</mat-icon>
+            <mat-icon *ngIf="activity.type===9">directions_bike</mat-icon>
         </div>
         <mat-card-title>{{ activity.title }}</mat-card-title>
         <mat-card-subtitle>{{ activity.date | date: 'dd/MM/yyyy'}}</mat-card-subtitle>
@@ -15,12 +21,13 @@
         <div class="row">
             <p>Description:</p>
             <textarea #description matInput cdkTextareaAutosize cdkAutosizeMinRows="5" cdkAutosizeMaxRows="15"
-                placeholder="Placeholder" readonly>{{ activity.description }}</textarea>
+                readonly>{{ activity.description }}</textarea>
         </div>
 
         <div class="row">
             <p>Duration:</p>
-            <input matInput type="number" (input)="onInput($event)"> / {{ activity.expectedDuration }} min.
+            <input class="duration" matInput type="number" (input)="onInput($event)"> / {{ activity.expectedDuration }}
+            min.
         </div>
 
         <div class="row">

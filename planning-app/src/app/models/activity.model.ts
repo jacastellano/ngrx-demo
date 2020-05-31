@@ -14,8 +14,9 @@ export enum ActivityType {
     JOB = 4,
     LEARNING = 5,
     OTHER = 6,
-    SOCIAL = 7,
-    SPORT = 8,
+    SELF_IMPROVEMENT = 7,
+    SOCIAL = 8,
+    SPORT = 9,
 }
 
 export interface Activity {
