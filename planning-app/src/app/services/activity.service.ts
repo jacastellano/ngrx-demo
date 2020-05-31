@@ -24,7 +24,7 @@ export class ActivityService {
    * @param HttpClient Ng HttpClient
    */
   constructor(
-    private HttpClient: HttpClient,
+    private httpClient: HttpClient,
   ) {
     this.url = 'localhost:3000/activities';
   }
@@ -33,15 +33,22 @@ export class ActivityService {
    * Return all activities
    */
   public findAll(): Observable<Activity[]> {
-    return this.HttpClient.get<Activity[]>(this.url);
+    return this.httpClient.get<Activity[]>(this.url);
+  }
+
+  /**
+   * Return activity by id
+   */
+  public findById(id: number): Observable<Activity> {
+    return this.httpClient.get<Activity>(`${this.url}/${id}`);
   }
 
   /**
    * Create activity
    * @param activity Activity data
    */
-  public create(activity: Activity) {
-    return this.HttpClient.post<Activity>(this.url, activity, {}).pipe(
+  public create(activity: Activity): Observable<Activity> {
+    return this.httpClient.post<Activity>(this.url, activity, {}).pipe(
       tap((newActivity: Activity) => console.log(`added activity with id=${newActivity.id}`)),
       catchError(this.handleError<Activity>('createActivity'))
     );
@@ -49,10 +56,10 @@ export class ActivityService {
 
   /**
    * Edit activity
-   * @param activity Upgraded activity data 
+   * @param activity Upgraded activity data
    */
-  public edit(activity: Activity) {
-    return this.HttpClient.put(this.url, activity, {}).pipe(
+  public edit(activity: Activity): Observable<Activity> {
+    return this.httpClient.put(`${this.url}/${activity.id}`, activity, {}).pipe(
       tap(() => console.log(`updated activity id=${activity.id}`)),
       catchError(this.handleError<any>('editActivity'))
     );
@@ -62,8 +69,8 @@ export class ActivityService {
    * Delete activity
    * @param id Activity id
    */
-  public delete(id: number) {
-    return this.HttpClient.delete<Activity>(`${this.url}/id`, {}).pipe(
+  public delete(id: number): Observable<Activity> {
+    return this.httpClient.delete<Activity>(`${this.url}/id`, {}).pipe(
       tap(() => console.log(`deleted activity id=${id}`)),
       catchError(this.handleError<Activity>('deleteActivity'))
     );
