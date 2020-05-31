@@ -1,0 +1,52 @@
+<mat-card class="activity-card">
+
+    <mat-card-header>
+        <div mat-card-avatar>
+            <mat-icon>
+                sentiment_satisfied_alt
+            </mat-icon>
+        </div>
+        <mat-card-title>{{ activity.title }}</mat-card-title>
+        <mat-card-subtitle>{{ activity.date | date: 'dd/MM/yyyy'}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+
+        <div class="row">
+            <p>Description:</p>
+            <textarea #description matInput cdkTextareaAutosize cdkAutosizeMinRows="5" cdkAutosizeMaxRows="15"
+                placeholder="Placeholder" readonly>{{ activity.description }}</textarea>
+        </div>
+
+        <div class="row">
+            <p>Duration:</p>
+            <input matInput type="number" (input)="onInput($event)"> / {{ activity.expectedDuration }} min.
+        </div>
+
+        <div class="row">
+            <p>Feeling:</p>
+            <mat-icon (click)="mark(1)" [ngClass]="activity.feeling === 1 ? 'mat-primary' : ''">
+                sentiment_very_dissatisfied</mat-icon>
+            <mat-icon (click)="mark(2)" [ngClass]="activity.feeling === 2 ? 'mat-primary' : ''">
+                sentiment_dissatisfied
+            </mat-icon>
+            <mat-icon (click)="mark(3)" [ngClass]="activity.feeling === 3 ? 'mat-primary' : ''">
+                sentiment_satisfied
+            </mat-icon>
+            <mat-icon (click)="mark(4)" [ngClass]="activity.feeling === 4 ? 'mat-primary' : ''">
+                sentiment_satisfied_alt
+            </mat-icon>
+            <mat-icon (click)="mark(5)" [ngClass]="activity.feeling === 5 ? 'mat-primary' : ''">
+                sentiment_very_satisfied
+            </mat-icon>
+        </div>
+
+        <div class="row">
+            <p>Perceived exertion:</p>
+            <mat-slider color="primary" (input)="activity.perceivedExertion = $event.value" min="0" max="10" step="1">
+            </mat-slider>
+            {{ activity.perceivedExertion }}
+        </div>
+
+    </mat-card-content>
+</mat-card>

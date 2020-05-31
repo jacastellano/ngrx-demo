@@ -1,0 +1,26 @@
+.activity-card {
+    width: 200px;
+    margin: 20px 5px;
+}
+
+.activity-card mat-card-header mat-icon {
+    font-size: 50px;
+}
+
+.activity-card .row {
+    margin-bottom: 15px;
+}
+
+.activity-card textarea {
+    padding: 2%;
+    width: 96%;
+    border: none;
+}
+
+.activity-card mat-slider {
+    width: 90%;
+}
+
+.activity-card mat-icon {
+    cursor: pointer;
+}

@@ -21,12 +21,12 @@ export class ActivityService {
 
   /**
    * Constructor
-   * @param HttpClient Ng HttpClient 
+   * @param HttpClient Ng HttpClient
    */
   constructor(
     private HttpClient: HttpClient,
   ) {
-    this.url = 'localhost:3000/activities'
+    this.url = 'localhost:3000/activities';
   }
 
   /**
@@ -38,7 +38,7 @@ export class ActivityService {
 
   /**
    * Create activity
-   * @param activity Activity data 
+   * @param activity Activity data
    */
   public create(activity: Activity) {
     return this.HttpClient.post<Activity>(this.url, activity, {}).pipe(

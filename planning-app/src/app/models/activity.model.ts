@@ -7,13 +7,25 @@ export enum Feeling {
     EXCELENT = 5
 }
 
+export enum ActivityType {
+    ART = 1,
+    FAMILY = 2,
+    HOUSEWORK = 3,
+    JOB = 4,
+    LEARNING = 5,
+    OTHER = 6,
+    SOCIAL = 7,
+    SPORT = 8,
+}
+
 export interface Activity {
     id?: number;
     title: string;
     description: string;
-    expectedDurantion: number;
+    type: ActivityType;
+    expectedDuration: number;
     date: Date;
     realDuration?: number;
-    feeling: Feeling;
-    perceivedExertion: number;
+    feeling?: Feeling;
+    perceivedExertion?: number;
 }
