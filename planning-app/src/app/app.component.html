@@ -1,10 +1,6 @@
 <header>
     <h1>{{ currentDate | date: 'dd/MM/yyyy'}}</h1>
 </header>
-<section class="main flex-container">
-    <app-activity [activity]="activity"></app-activity>
-    <app-activity [activity]="activity"></app-activity>
-    <app-activity [activity]="activity"></app-activity>
-    <app-activity [activity]="activity"></app-activity>
-    <app-activity [activity]="activity"></app-activity>
+<section class="main">
+    <app-activity-list></app-activity-list>
 </section>
