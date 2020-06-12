@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from '../../models/activity.model';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { loadActivities } from '../../store/activity.actions';
 
 
@@ -14,12 +14,23 @@ export class ActivityListComponent implements OnInit {
   activityList: Activity[];
 
   constructor(
-    private readonly store: Store,
+    private readonly store: Store<any>,
   ) { }
 
   ngOnInit(): void {
-    this.activityList = [];
+
+    // subscribe to activities state
+    this.store.pipe(select('activities')).subscribe(
+      (state) => {
+        if (!state.loaading) {
+          this.activityList = state.activities;
+        }
+      }
+    );
+
+    // load activities
     this.store.dispatch(loadActivities());
+
   }
 
 }
