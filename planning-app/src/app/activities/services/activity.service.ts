@@ -26,7 +26,7 @@ export class ActivityService {
   constructor(
     private httpClient: HttpClient,
   ) {
-    this.url = 'localhost:3000/activities';
+    this.url = 'http://localhost:3000/activities';
   }
 
   /**
