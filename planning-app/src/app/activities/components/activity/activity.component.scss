@@ -1,40 +1,41 @@
 .activity-card {
+    
     width: 200px;
     margin: 20px 5px;
     height: 100%;
-}
 
-.activity-card mat-card-header {
-    min-height: 20%;
-}
+    mat-card-header {
+        min-height: 20%;
+        mat-icon {
+            font-size: 50px;
+        }
+    }
 
-.activity-card mat-card-header mat-icon {
-    font-size: 50px;
-}
+    .row {
+        margin-bottom: 15px;
+    }
 
-.activity-card .row {
-    margin-bottom: 15px;
-}
+    textarea {
+        padding: 2%;
+        width: 96%;
+        border: none;
+    }
 
-.activity-card textarea {
-    padding: 2%;
-    width: 96%;
-    border: none;
-}
+    .duration {
+        width: 20%;
+        border: none;
+        font-size: 1em;
+        text-align: right;
+    }
 
-.activity-card .duration {
-    width: 20%;
-    border: none;
-    font-size: 1em;
-    text-align: right;
-}
+    mat-slider {
+        width: 90%;
+    }
 
-.activity-card mat-slider {
-    width: 90%;
-}
+    mat-icon {
+        cursor: pointer;
+        font-size: 30px;
+        margin: 0 3px;
+    }
 
-.activity-card mat-icon {
-    cursor: pointer;
-    font-size: 30px;
-    margin: 0 3px;
 }
