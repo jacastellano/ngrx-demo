@@ -1,6 +1,11 @@
 .activity-card {
     width: 200px;
     margin: 20px 5px;
+    height: 100%;
+}
+
+.activity-card mat-card-header {
+    min-height: 20%;
 }
 
 .activity-card mat-card-header mat-icon {
