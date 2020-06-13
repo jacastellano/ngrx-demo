@@ -2,13 +2,15 @@ import { Action, createReducer, on } from '@ngrx/store';
 import * as actions from './activity.actions';
 import { Activity } from '../models/activity.model';
 
-export interface State {
+export const activityKey = 'activity';
+
+export interface ActivityState {
     data: Activity[];
     loading: boolean;
     error: any;
 }
 
-export const initialState: State = {
+export const initialState: ActivityState = {
     data: [],
     loading: false,
     error: null
@@ -85,6 +87,6 @@ const activityReducer = createReducer(
 
 );
 
-export function reducer(state: State | undefined, action: Action) {
+export function reducer(state: ActivityState | undefined, action: Action) {
     return activityReducer(state, action);
 }

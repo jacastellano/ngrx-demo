@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Activity } from '../../models/activity.model';
 import { Store, select } from '@ngrx/store';
 import { loadActivities } from '../../store/activity.actions';
+import { selectActivity } from '../../store';
 
 
 @Component({
@@ -20,9 +21,9 @@ export class ActivityListComponent implements OnInit {
   ngOnInit(): void {
 
     // subscribe to activities state
-    this.store.pipe(select('activities')).subscribe(
+    this.store.pipe(select(selectActivity)).subscribe(
       (state) => {
-        if (!state.loaading) {
+        if (!state.loading) {
           this.activityList = state.data;
         }
       }

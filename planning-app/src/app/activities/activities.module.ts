@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from '../app-material.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { reducer } from './store/activity.reducer';
+import * as fromActivityReducer from './store/activity.reducer';
 import { ActivityEffects } from './store/activity.effects';
 import { ActivityComponent } from './components/activity/activity.component';
 import { ActivityListComponent } from './components/activity-list/activity-list.component';
@@ -19,7 +19,7 @@ import { ActivityListComponent } from './components/activity-list/activity-list.
     HttpClientModule,
     BrowserAnimationsModule,
     AppMaterialModule,
-    StoreModule.forFeature('activities', reducer),
+    StoreModule.forFeature(fromActivityReducer.activityKey, fromActivityReducer.reducer),
     EffectsModule.forFeature([ActivityEffects]),
   ],
   exports: [ActivityListComponent]
