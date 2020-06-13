@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Activity, ActivityType } from 'src/app/activities/models/activity.model';
+import { Store } from '@ngrx/store';
+import { editActivity } from '../../store/activity.actions';
 
 
 @Component({
@@ -12,7 +14,9 @@ export class ActivityComponent implements OnInit {
   @Input()
   activity: Activity;
 
-  constructor() { }
+  constructor(
+    private readonly store: Store<any>
+  ) { }
 
   ngOnInit(): void {
 
@@ -22,8 +26,14 @@ export class ActivityComponent implements OnInit {
     console.log($event);
   }
 
-  public mark(id: number) {
-    this.activity.feeling = id;
+  public mark(feeling: number) {
+
+    const editedActivity: Activity = {
+      ...this.activity,
+      feeling
+    };
+
+    this.store.dispatch(editActivity({ activity: editedActivity }));
   }
 
 }

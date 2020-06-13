@@ -18,20 +18,21 @@ export class ActivityEffects {
 
     createActivity$ = createEffect(() => this.actions$.pipe(
         ofType('[Activity] createActivity'),
-        mergeMap((newActivity) => this.activityService.create(newActivity)
+        mergeMap(({ activity }) => this.activityService.create(activity)
             .pipe(
-                map(createdActivity => ({ type: '[Activity] createActivitySuccess', createdActivity })),
+                map(savedActivity => ({ type: '[Activity] createActivitySuccess', activity: savedActivity })),
                 catchError((error) => of({ type: '[Activity] createActivityError', error }))
             ))
     ));
 
     editActivity$ = createEffect(() => this.actions$.pipe(
         ofType('[Activity] editActivity'),
-        mergeMap((editedActivity) => this.activityService.edit(editedActivity)
+        mergeMap(({ activity }) => this.activityService.edit(activity)
             .pipe(
-                map(savedActivity => ({ type: '[Activity] editActivitySuccess', savedActivity })),
+                map(savedActivity => ({ type: '[Activity] editActivitySuccess', activity: savedActivity })),
                 catchError((error) => of({ type: '[Activity] editActivityError', error }))
-            ))
+            )
+        )
     ));
 
     deleteActivity$ = createEffect(() => this.actions$.pipe(
