@@ -23,7 +23,7 @@ export class ActivityListComponent implements OnInit {
     this.store.pipe(select('activities')).subscribe(
       (state) => {
         if (!state.loaading) {
-          this.activityList = state.activities;
+          this.activityList = state.data;
         }
       }
     );

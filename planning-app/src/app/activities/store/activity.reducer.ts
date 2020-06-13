@@ -3,13 +3,13 @@ import * as actions from './activity.actions';
 import { Activity } from '../models/activity.model';
 
 export interface State {
-    activities: Activity[];
+    data: Activity[];
     loading: boolean;
     error: any;
 }
 
 export const initialState: State = {
-    activities: [],
+    data: [],
     loading: false,
     error: null
 };
@@ -27,7 +27,7 @@ const activityReducer = createReducer(
     on(actions.loadActivitiesSuccess, (state, { activities }) => ({
         ...state,
         loading: false,
-        activities
+        data: activities
     })),
     on(actions.loadActivitiesError, (state, { error }) => ({
         ...state,
@@ -43,7 +43,7 @@ const activityReducer = createReducer(
     on(actions.createActivitySuccess, (state, { activity }) => ({
         ...state,
         loading: false,
-        activities: [...state.activities, activity]
+        data: [...state.data, activity]
     })),
     on(actions.createActivityError, (state, { error }) => ({
         ...state,
@@ -59,7 +59,7 @@ const activityReducer = createReducer(
     on(actions.editActivitySuccess, (state, { activity }) => ({
         ...state,
         loading: false,
-        activities: state.activities.map(item => item.id === activity.id ? activity : item)
+        data: state.data.map(item => item.id === activity.id ? activity : item)
     })),
     on(actions.editActivityError, (state, { error }) => ({
         ...state,
@@ -75,7 +75,7 @@ const activityReducer = createReducer(
     on(actions.deleteActivitySuccess, (state, { id }) => ({
         ...state,
         loading: false,
-        activities: state.activities.filter(item => item.id !== id)
+        data: state.data.filter(item => item.id !== id)
     })),
     on(actions.deleteActivityError, (state, { error }) => ({
         ...state,
