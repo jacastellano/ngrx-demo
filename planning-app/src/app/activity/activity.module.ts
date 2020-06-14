@@ -24,4 +24,4 @@ import { ActivityListComponent } from './components/activity-list/activity-list.
   ],
   exports: [ActivityListComponent]
 })
-export class ActivitiesModule { }
+export class ActivityModule { }

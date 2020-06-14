@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Activity, ActivityType } from 'src/app/activities/models/activity.model';
+import { Activity } from 'src/app/activity/models/activity.model';
 import { Store } from '@ngrx/store';
 import { editActivity } from '../../store/activity.actions';
 

@@ -1,5 +1,5 @@
 import { createFeatureSelector } from '@ngrx/store';
-import { ActivityState, activityKey } from './activities/store/activity.reducer';
+import { ActivityState, activityKey } from './activity/store/activity.reducer';
 
 export interface AppState {
     activity: ActivityState;
