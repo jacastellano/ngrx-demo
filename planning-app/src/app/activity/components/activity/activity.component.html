@@ -32,18 +32,24 @@
 
         <div class="row">
             <p>Feeling:</p>
-            <mat-icon (click)="mark(1)" [ngClass]="activity.feeling === 1 ? 'mat-primary' : ''">
-                sentiment_very_dissatisfied</mat-icon>
-            <mat-icon (click)="mark(2)" [ngClass]="activity.feeling === 2 ? 'mat-primary' : ''">
+            <mat-icon (click)="setFeeling(Feeling.HORRIBLE)"
+                [ngClass]="activity.feeling === Feeling.HORRIBLE ? 'mat-primary' : ''">
+                sentiment_very_dissatisfied
+            </mat-icon>
+            <mat-icon (click)="setFeeling(Feeling.BAD)"
+                [ngClass]="activity.feeling === Feeling.BAD ? 'mat-primary' : ''">
                 sentiment_dissatisfied
             </mat-icon>
-            <mat-icon (click)="mark(3)" [ngClass]="activity.feeling === 3 ? 'mat-primary' : ''">
+            <mat-icon (click)="setFeeling(Feeling.NORMAL)"
+                [ngClass]="activity.feeling === Feeling.NORMAL ? 'mat-primary' : ''">
                 sentiment_satisfied
             </mat-icon>
-            <mat-icon (click)="mark(4)" [ngClass]="activity.feeling === 4 ? 'mat-primary' : ''">
+            <mat-icon (click)="setFeeling(Feeling.WELL)"
+                [ngClass]="activity.feeling === Feeling.WELL ? 'mat-primary' : ''">
                 sentiment_satisfied_alt
             </mat-icon>
-            <mat-icon (click)="mark(5)" [ngClass]="activity.feeling === 5 ? 'mat-primary' : ''">
+            <mat-icon (click)="setFeeling(Feeling.EXCELENT)"
+                [ngClass]="activity.feeling === Feeling.EXCELENT ? 'mat-primary' : ''">
                 sentiment_very_satisfied
             </mat-icon>
         </div>

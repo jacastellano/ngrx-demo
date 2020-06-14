@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Activity } from 'src/app/activity/models/activity.model';
+import { Activity, Feeling } from 'src/app/activity/models/activity.model';
 import { Store } from '@ngrx/store';
 import { editActivity } from '../../store/activity.actions';
-
 
 @Component({
   selector: 'app-activity',
@@ -10,6 +9,8 @@ import { editActivity } from '../../store/activity.actions';
   styleUrls: ['./activity.component.scss']
 })
 export class ActivityComponent implements OnInit {
+
+  Feeling = Feeling;
 
   @Input()
   activity: Activity;
@@ -26,7 +27,7 @@ export class ActivityComponent implements OnInit {
     console.log($event);
   }
 
-  public mark(feeling: number) {
+  public setFeeling(feeling: number) {
 
     const editedActivity: Activity = {
       ...this.activity,
