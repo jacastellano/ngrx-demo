@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Activity, Feeling } from 'src/app/activity/models/activity.model';
+import { Activity, ActivityType, Feeling } from 'src/app/activity/models/activity.model';
 import { Store } from '@ngrx/store';
 import { editActivity } from '../../store/activity.actions';
 
@@ -9,6 +9,8 @@ import { editActivity } from '../../store/activity.actions';
   styleUrls: ['./activity.component.scss']
 })
 export class ActivityComponent implements OnInit {
+
+  ActivityType = ActivityType;
 
   Feeling = Feeling;
 

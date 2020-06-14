@@ -2,15 +2,15 @@
 
     <mat-card-header>
         <div mat-card-avatar>
-            <mat-icon *ngIf="activity.type===1">library_music</mat-icon>
-            <mat-icon *ngIf="activity.type===2">people</mat-icon>
-            <mat-icon *ngIf="activity.type===3">home</mat-icon>
-            <mat-icon *ngIf="activity.type===4">laptop_mac</mat-icon>
-            <mat-icon *ngIf="activity.type===5">school</mat-icon>
-            <mat-icon *ngIf="activity.type===6">help_center</mat-icon>
-            <mat-icon *ngIf="activity.type===7">self_improvement</mat-icon>
-            <mat-icon *ngIf="activity.type===8">person_add</mat-icon>
-            <mat-icon *ngIf="activity.type===9">directions_bike</mat-icon>
+            <mat-icon *ngIf="activity.type === ActivityType.ART">library_music</mat-icon>
+            <mat-icon *ngIf="activity.type === ActivityType.FAMILY">people</mat-icon>
+            <mat-icon *ngIf="activity.type === ActivityType.HOUSEWORK">home</mat-icon>
+            <mat-icon *ngIf="activity.type === ActivityType.JOB">laptop_mac</mat-icon>
+            <mat-icon *ngIf="activity.type === ActivityType.LEARNING">school</mat-icon>
+            <mat-icon *ngIf="activity.type === ActivityType.OTHER">help_center</mat-icon>
+            <mat-icon *ngIf="activity.type === ActivityType.SELF_IMPROVEMENT">self_improvement</mat-icon>
+            <mat-icon *ngIf="activity.type === ActivityType.SOCIAL">person_add</mat-icon>
+            <mat-icon *ngIf="activity.type === ActivityType.SPORT">directions_bike</mat-icon>
         </div>
         <mat-card-title>{{ activity.title }}</mat-card-title>
         <mat-card-subtitle>{{ activity.date | date: 'dd/MM/yyyy'}}</mat-card-subtitle>
