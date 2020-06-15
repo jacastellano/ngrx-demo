@@ -8,6 +8,7 @@ import * as fromActivityReducer from './store/activity.reducer';
 import { ActivityEffects } from './store/activity.effects';
 import { ActivityComponent } from './components/activity/activity.component';
 import { ActivityListComponent } from './components/activity-list/activity-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +20,8 @@ import { ActivityListComponent } from './components/activity-list/activity-list.
     HttpClientModule,
     BrowserAnimationsModule,
     AppMaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     StoreModule.forFeature(fromActivityReducer.activityKey, fromActivityReducer.reducer),
     EffectsModule.forFeature([ActivityEffects]),
   ],

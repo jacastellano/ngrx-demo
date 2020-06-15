@@ -18,48 +18,52 @@
 
     <mat-card-content>
 
-        <div class="row">
-            <p>Description:</p>
-            <textarea #description matInput cdkTextareaAutosize cdkAutosizeMinRows="8" cdkAutosizeMaxRows="8"
-                readonly>{{ activity.description }}</textarea>
-        </div>
+        <form [formGroup]="activityForm">
 
-        <div class="row">
-            <p>Duration:</p>
-            <input class="duration" matInput type="number" (input)="onInput($event)"> / {{ activity.expectedDuration }}
-            min.
-        </div>
+            <div class="row">
+                <p>Description:</p>
+                <textarea #description matInput cdkTextareaAutosize cdkAutosizeMinRows="8" cdkAutosizeMaxRows="8"
+                    readonly>{{ activity.description }}</textarea>
+            </div>
 
-        <div class="row">
-            <p>Feeling:</p>
-            <mat-icon (click)="setFeeling(Feeling.HORRIBLE)"
-                [ngClass]="activity.feeling === Feeling.HORRIBLE ? 'mat-primary' : ''">
-                sentiment_very_dissatisfied
-            </mat-icon>
-            <mat-icon (click)="setFeeling(Feeling.BAD)"
-                [ngClass]="activity.feeling === Feeling.BAD ? 'mat-primary' : ''">
-                sentiment_dissatisfied
-            </mat-icon>
-            <mat-icon (click)="setFeeling(Feeling.NORMAL)"
-                [ngClass]="activity.feeling === Feeling.NORMAL ? 'mat-primary' : ''">
-                sentiment_satisfied
-            </mat-icon>
-            <mat-icon (click)="setFeeling(Feeling.WELL)"
-                [ngClass]="activity.feeling === Feeling.WELL ? 'mat-primary' : ''">
-                sentiment_satisfied_alt
-            </mat-icon>
-            <mat-icon (click)="setFeeling(Feeling.EXCELENT)"
-                [ngClass]="activity.feeling === Feeling.EXCELENT ? 'mat-primary' : ''">
-                sentiment_very_satisfied
-            </mat-icon>
-        </div>
+            <div class="row">
+                <p>Duration:</p>
+                <input formControlName="duration" class="duration" matInput type="number" (blur)="setDuration()"> /
+                {{ activity.expectedDuration }} min.
+            </div>
 
-        <div class="row">
-            <p>Perceived exertion:</p>
-            <mat-slider color="primary" (input)="activity.perceivedExertion = $event.value" min="0" max="10" step="1">
-            </mat-slider>
-            {{ activity.perceivedExertion }}
-        </div>
+            <div class="row">
+                <p>Feeling:</p>
+                <mat-icon (click)="setFeeling(Feeling.HORRIBLE)"
+                    [ngClass]="activity.feeling === Feeling.HORRIBLE ? 'mat-primary' : ''">
+                    sentiment_very_dissatisfied
+                </mat-icon>
+                <mat-icon (click)="setFeeling(Feeling.BAD)"
+                    [ngClass]="activity.feeling === Feeling.BAD ? 'mat-primary' : ''">
+                    sentiment_dissatisfied
+                </mat-icon>
+                <mat-icon (click)="setFeeling(Feeling.NORMAL)"
+                    [ngClass]="activity.feeling === Feeling.NORMAL ? 'mat-primary' : ''">
+                    sentiment_satisfied
+                </mat-icon>
+                <mat-icon (click)="setFeeling(Feeling.WELL)"
+                    [ngClass]="activity.feeling === Feeling.WELL ? 'mat-primary' : ''">
+                    sentiment_satisfied_alt
+                </mat-icon>
+                <mat-icon (click)="setFeeling(Feeling.EXCELENT)"
+                    [ngClass]="activity.feeling === Feeling.EXCELENT ? 'mat-primary' : ''">
+                    sentiment_very_satisfied
+                </mat-icon>
+            </div>
 
+            <div class="row">
+                <p>Perceived exertion:</p>
+                <mat-slider color="primary" (input)="activity.perceivedExertion = $event.value" min="0" max="10"
+                    step="1">
+                </mat-slider>
+                {{ activity.perceivedExertion }}
+            </div>
+
+        </form>
     </mat-card-content>
 </mat-card>
