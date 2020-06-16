@@ -50,9 +50,23 @@ export class ActivityComponent implements OnInit {
     this.store.dispatch(editActivity({ activity: editedActivity }));
   }
 
+  public setPerceivedExertion(): void {
+
+    const perceivedExertion = this.activityForm.get('perceivedExertion').value;
+
+    const editedActivity: Activity = {
+      ...this.activity,
+      perceivedExertion
+    };
+
+    this.store.dispatch(editActivity({ activity: editedActivity }));
+
+  }
+
   private createActivityForm() {
     return new FormGroup({
-      duration: new FormControl(this.activity.realDuration)
+      duration: new FormControl(this.activity.realDuration),
+      perceivedExertion: new FormControl(this.activity.perceivedExertion),
     });
   }
 

@@ -58,8 +58,8 @@
 
             <div class="row">
                 <p>Perceived exertion:</p>
-                <mat-slider color="primary" (input)="activity.perceivedExertion = $event.value" min="0" max="10"
-                    step="1">
+                <mat-slider formControlName="perceivedExertion" (change)="setPerceivedExertion()" color="primary"
+                    min="0" max="10" step="1">
                 </mat-slider>
                 {{ activity.perceivedExertion }}
             </div>
