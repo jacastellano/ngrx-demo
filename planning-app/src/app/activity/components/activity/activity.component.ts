@@ -18,6 +18,8 @@ export class ActivityComponent implements OnInit {
   @Input()
   activity: Activity;
 
+  activityStyle: string;
+
   activityForm: FormGroup;
 
   constructor(
@@ -25,7 +27,25 @@ export class ActivityComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     this.activityForm = this.createActivityForm();
+
+    this.activityStyle = 'activity-card ';
+    if (this.activity.realDuration) {
+      const diff = Math.abs(this.activity.realDuration - this.activity.expectedDuration);
+      if (diff < this.activity.expectedDuration * 0.2) {
+        this.activityStyle += 'perfect';
+      } else if (diff < this.activity.expectedDuration * 0.35) {
+        this.activityStyle += 'good';
+      } else if (diff < this.activity.expectedDuration * 0.5) {
+        this.activityStyle += 'almost';
+      } else {
+        this.activityStyle += 'fail';
+      }
+    } else {
+      this.activityStyle += 'pending';
+    }
+
   }
 
   public setDuration(): void {

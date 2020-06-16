@@ -3,11 +3,6 @@
     width: 200px;
     margin: 20px 5px;
     height: 100%;
-    // background-color: lightgreen;
-    // background-color: lightyellow;
-    // background-color: lightsalmon;
-    // background-color: lightcoral;
-    background-color: #f0f0f0;
 
     mat-card-header {
         min-height: 20%;
@@ -43,4 +38,24 @@
         margin: 0 3px;
     }
 
+}
+
+.perfect {
+    background-color: lightgreen;
+}
+
+.good {
+    background-color: lightyellow;
+}
+
+.almost {
+    background-color: lightsalmon;
+}
+
+.fail {
+    background-color: lightcoral;
+}
+
+.pending {
+    background-color: #f0f0f0;
 }
