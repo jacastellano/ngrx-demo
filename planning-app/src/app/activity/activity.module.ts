@@ -9,6 +9,8 @@ import { ActivityEffects } from './store/activity.effects';
 import { ActivityComponent } from './components/activity/activity.component';
 import { ActivityListComponent } from './components/activity-list/activity-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { AppDateAdapter, APP_DATE_FORMATS } from '../app-date-adapter';
 
 
 @NgModule({
@@ -25,6 +27,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     StoreModule.forFeature(fromActivityReducer.activityKey, fromActivityReducer.reducer),
     EffectsModule.forFeature([ActivityEffects]),
   ],
-  exports: [ActivityListComponent]
+  exports: [ActivityListComponent],
+  providers: [
+    { provide: DateAdapter, useClass: AppDateAdapter },
+    { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS }
+  ]
 })
 export class ActivityModule { }
