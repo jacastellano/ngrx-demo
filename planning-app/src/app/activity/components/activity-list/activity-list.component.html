@@ -1,3 +1,13 @@
 <div class="flex-container">
+    <form [formGroup]="filtersForm">
+        <mat-form-field color="primary" appearance="fill">
+            <mat-label>Select date:</mat-label>
+            <input formControlName="date" matInput [matDatepicker]="date">
+            <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+            <mat-datepicker #date></mat-datepicker>
+        </mat-form-field>
+    </form>
+</div>
+<div class="flex-container">
     <app-activity *ngFor="let activity of activityList" [activity]="activity"></app-activity>
 </div>

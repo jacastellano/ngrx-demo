@@ -2,15 +2,5 @@
     <h1>Planning app</h1>
 </header>
 <section class="main">
-    <div class="filters">
-        <form [formGroup]="filtersForm">
-            <mat-form-field color="primary" appearance="fill">
-                <mat-label>Select date:</mat-label>
-                <input formControlName="date" matInput [matDatepicker]="date">
-                <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
-                <mat-datepicker #date></mat-datepicker>
-            </mat-form-field>
-        </form>
-    </div>
     <app-activity-list></app-activity-list>
 </section>

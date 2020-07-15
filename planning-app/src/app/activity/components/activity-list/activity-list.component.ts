@@ -3,6 +3,7 @@ import { Activity } from '../../models/activity.model';
 import { Store, select } from '@ngrx/store';
 import { loadActivities } from '../../store/activity.actions';
 import { selectActivity } from '../../store';
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -12,6 +13,8 @@ import { selectActivity } from '../../store';
 })
 export class ActivityListComponent implements OnInit {
 
+  filtersForm: FormGroup;
+
   activityList: Activity[];
 
   constructor(
@@ -19,6 +22,14 @@ export class ActivityListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    // Create filters form
+    this.filtersForm = this.createFiltersForm();
+
+    // subscribe to form changes
+    this.filtersForm.valueChanges.subscribe(
+      (data) => console.log(data)
+    );
 
     // subscribe to activities state
     this.store.pipe(select(selectActivity)).subscribe(
@@ -32,6 +43,12 @@ export class ActivityListComponent implements OnInit {
     // load activities
     this.store.dispatch(loadActivities());
 
+  }
+
+  private createFiltersForm() {
+    return new FormGroup({
+      date: new FormControl(new Date()),
+    });
   }
 
 }

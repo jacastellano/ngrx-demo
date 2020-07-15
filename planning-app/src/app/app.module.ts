@@ -5,8 +5,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ActivityModule } from './activity/activity.module';
-import { AppMaterialModule } from './app-material.module';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,9 +17,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
     ActivityModule,
-    AppMaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
