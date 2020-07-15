@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import { Activity } from '../models/activity.model';
+import { DatePipe } from '@angular/common';
 
 
 /**
@@ -25,6 +26,7 @@ export class ActivityService {
    */
   constructor(
     private httpClient: HttpClient,
+    private datePipe: DatePipe,
   ) {
     this.url = 'http://localhost:3000/activities';
   }
@@ -41,6 +43,14 @@ export class ActivityService {
    */
   public findById(id: number): Observable<Activity> {
     return this.httpClient.get<Activity>(`${this.url}/${id}`);
+  }
+
+  /**
+   * Return activity by date
+   */
+  public findByDate(date: Date): Observable<Activity> {
+    const strDate = this.datePipe.transform(date, 'yyyy-MM-dd');
+    return this.httpClient.get<Activity>(`${this.url}?date=${strDate}`);
   }
 
   /**

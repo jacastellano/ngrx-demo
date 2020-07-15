@@ -28,7 +28,12 @@ export class ActivityListComponent implements OnInit {
 
     // subscribe to form changes
     this.filtersForm.valueChanges.subscribe(
-      (data) => console.log(data)
+      (data) => {
+        if (data.date) {
+          // refresh activities
+          this.store.dispatch(loadActivities({ date: data.date }));
+        }
+      }
     );
 
     // subscribe to activities state
@@ -40,8 +45,8 @@ export class ActivityListComponent implements OnInit {
       }
     );
 
-    // load activities
-    this.store.dispatch(loadActivities());
+    // refresh activities
+    this.store.dispatch(loadActivities({ date: new Date() }));
 
   }
 

@@ -11,6 +11,7 @@ import { ActivityListComponent } from './components/activity-list/activity-list.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { AppDateAdapter, APP_DATE_FORMATS } from '../app-date-adapter';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AppDateAdapter, APP_DATE_FORMATS } from '../app-date-adapter';
   exports: [ActivityListComponent],
   providers: [
     { provide: DateAdapter, useClass: AppDateAdapter },
-    { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS }
+    { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS },
+    DatePipe,
   ]
 })
 export class ActivityModule { }

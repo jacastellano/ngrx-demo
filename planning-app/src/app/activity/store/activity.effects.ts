@@ -9,7 +9,7 @@ export class ActivityEffects {
 
     loadActivities$ = createEffect(() => this.actions$.pipe(
         ofType('[Activity] loadActivities'),
-        mergeMap(() => this.activityService.findAll()
+        mergeMap(({ date }) => this.activityService.findByDate(date)
             .pipe(
                 map(activities => ({ type: '[Activity] loadActivitiesSuccess', activities })),
                 catchError((error) => of({ type: '[Activity] loadActivitiesError', error }))

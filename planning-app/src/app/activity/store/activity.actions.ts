@@ -3,6 +3,7 @@ import { Activity } from '../models/activity.model';
 
 export const loadActivities = createAction(
     '[Activity] loadActivities',
+    props<{ date: Date }>(),
 );
 
 export const loadActivitiesSuccess = createAction(
