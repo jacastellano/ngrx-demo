@@ -6,4 +6,10 @@ header, section.main {
     h1 {
         text-align: center;
     }
+
+    .filters {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
 }
